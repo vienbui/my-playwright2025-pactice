@@ -1,7 +1,7 @@
 import {expect, test} from '@playwright/test';
 
 test.beforeEach(async ({page}) => {
-    await page.goto('http://uitestingplayground.com/ajax')
+    await page.goto(process.env.URL) // lesson 66 process environment variables
     await page.getByText('Button Triggering AJAX Request').click()
     
 })
