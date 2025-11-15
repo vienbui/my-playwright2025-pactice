@@ -11,7 +11,6 @@ test.beforeAll(async () => {
 
 
 test('parametized methods', async ({page, formLayoutsPage}) => { // import fixture cua lesson 68
-    const navigateTo = new NavigationPage(page)
     const onFormLayoutsPage = new FormLayoutsPage(page)
     const randomFullName = faker.person.fullName()
     const randomEmail = `${randomFullName.replace(" ","" )}${faker.number.int(1000)}@test.com`;
