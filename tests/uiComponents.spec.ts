@@ -6,7 +6,8 @@ test.beforeEach(async ({page}) => {
     await page.goto('http://localhost:4200/')
 })
 
-test.describe('Form Layouts page',() => {
+test.describe ('Form Layouts page',() => {
+    // test.describe.configure({retries: 2})
     test.beforeEach(async ({page}) => {  
         await page.getByText('Forms').click()
         await page.getByText('Form Layouts').click()
@@ -23,12 +24,12 @@ test.describe('Form Layouts page',() => {
         await usingtheGridEmailInput.clear()
 
         //if we want to type again with delaying 
-        await usingtheGridEmailInput.pressSequentially('test2@test.com', {delay:100})
+        await usingtheGridEmailInput.pressSequentially('test2@test.com')
 
 
         // generic assertion for input field
         const inputValue = await usingtheGridEmailInput.inputValue()
-        expect (inputValue).toBe('test2@test.com')
+        expect (inputValue).toEqual('test2@test.com')
 
         //locator assertion
         await expect (usingtheGridEmailInput).toHaveValue('test2@test.com') // dont use toHaveText for input fields

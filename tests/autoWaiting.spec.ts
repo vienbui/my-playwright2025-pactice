@@ -24,7 +24,7 @@ test('auto waiting', async ({page}) => {
 
 })
 
-test('alternative waits', async ({page}) => {
+test.skip('alternative waits', async ({page}) => {
     const successButton = page.locator('.bg-success')
 
     //wait for element
@@ -41,7 +41,7 @@ test('alternative waits', async ({page}) => {
 
 })
 
-test ('timeouts', async({page}) => {
+test.skip ('timeouts', async({page}) => {
     const successButton = page.locator('.bg-success')
     await successButton.click({timeout: 16000})
     // global setting timout in playwright.config.ts

@@ -3,13 +3,14 @@ import {NavigationPage} from '../page-objects/navigationPage';
 import { FormLayoutsPage } from '../page-objects/formLayoutsPage';
 import { DatePickerPage } from '../page-objects/datePickerPage';
 
+// lesson 62 Test Data Generation with Faker.js
+
 let faker: any;
 
 test.beforeAll(async () => {
   faker = (await import('@faker-js/faker')).faker;
 });
 
-// lesson 62 Test Data Generation with Faker.js
 
 test.beforeEach(async({page}) => {
     await page.goto('http://localhost:4200/')
@@ -39,11 +40,16 @@ test('parametized methods', async ({page}) => {
 
     await navigateTo.formLayoutsPage()
     await onFormLayoutsPage.submitUsingTheGridFormWithCredentialsAndSeletOption('email@example.com', 'password', 'Option 2')
+    // bài 62, screenshot
+    await page.screenshot({path: `screenshots/formlayout-${Date.now()}.png`, fullPage: true})
+    const buffer = await page.screenshot()
+    console.log(buffer.toString('base64'))    
+
     // await onFormLayoutsPage.submitInlineFormWithCredentials('Welcome', 'wel@example.com', false)
     await onFormLayoutsPage.submitInlineFormWithCredentials(randomFullName, randomEmail, false)
    
    
-   
+   await page.locator('nb-card', {hasText: 'Inline form'}).screenshot({path: `screenshots/inlineform-${Date.now()}.png`})
     // await navigateTo.datePickerPage()
     // await onDatePickerPage.selectCommonDatePickerFromToday(6)
     // await onDatePickerPage.selectDatepickerWithRangeFromToday(6, 10)

@@ -9,11 +9,12 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "test": "ng test",
-    "build": "ng build",
-    "pageObject-chrome": "npx playwright test usePageObject.spec.ts --project=chromium",
-    "pageObject-firefox": "npx playwright test usePageObject.spec.ts --project=firefox",
-    "pageObject-all": "npm run pageObject-chrome && npm run pageObject-firefox" 
+    "test": "npx playwright test",
+   "test:chrome": "npx playwright test --project=chromium",
+  "test:firefox": "npx playwright test --project=firefox",
+  "pageObject-chrome": "npx playwright test usePageObject.spec.ts --project=chromium",
+  "pageObject-firefox": "npx playwright test usePageObject.spec.ts --project=firefox",
+  "pageObject-all": "npm run pageObject-chrome && npm run pageObject-firefox"
   },
   "overrides": {
     "stylus": "github:stylus/stylus#0.54.5"
