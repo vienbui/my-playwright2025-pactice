@@ -1,7 +1,7 @@
 import {expect, test} from '@playwright/test';
 
 test.beforeEach(async ({page}) => {
-    await page.goto(process.env.URL) // lesson 66 process environment variables
+    await page.goto('http://uitestingplayground.com/ajax')
     await page.getByText('Button Triggering AJAX Request').click()
     
 })
@@ -24,7 +24,7 @@ test('auto waiting', async ({page}) => {
 
 })
 
-test.skip('alternative waits', async ({page}) => {
+test('alternative waits', async ({page}) => {
     const successButton = page.locator('.bg-success')
 
     //wait for element
@@ -41,7 +41,7 @@ test.skip('alternative waits', async ({page}) => {
 
 })
 
-test.skip ('timeouts', async({page}) => {
+test ('timeouts', async({page}) => {
     const successButton = page.locator('.bg-success')
     await successButton.click({timeout: 16000})
     // global setting timout in playwright.config.ts

@@ -18,7 +18,7 @@ test('parametized methods', async ({page, formLayoutsPage}) => { // import fixtu
     // await navigateTo.formLayoutsPage()
     await onFormLayoutsPage.submitUsingTheGridFormWithCredentialsAndSeletOption('email@example.com', 'password', 'Option 2')
      await onFormLayoutsPage.submitInlineFormWithCredentials(randomFullName, randomEmail, false)
-
+// có thể thêm fixture thứ 2 ở đây để manage formLayoutsPage
 
 })
 
